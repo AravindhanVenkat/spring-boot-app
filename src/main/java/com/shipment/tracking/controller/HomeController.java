@@ -16,7 +16,7 @@ public class HomeController {
 	@RequestMapping(value="/api/call", method = RequestMethod.GET)
 	public ResponseEntity<Map<String,String>> getLogin(){
 		Map<String,String> result = new HashMap<String,String>();
-		result.put("tamil","90");
+		result.put("tamil","100");
 		result.put("maths","90");
 		result.put("science","90");
 		result.put("social","90");
