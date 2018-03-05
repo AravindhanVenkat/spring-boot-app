@@ -1,13 +1,13 @@
 package com.shipment.tracking.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.shipment.tracking.model.QuoteResponse;
 import com.shipment.tracking.service.LCLQuoteService;
 import com.shipment.tracking.util.UrlPath;
 
@@ -20,7 +20,11 @@ public class HomeController {
 	private LCLQuoteService lclQuoteService;
 	
 	@RequestMapping(value=UrlPath.CarrierURL, method = RequestMethod.GET)
-	public ResponseEntity<QuoteResponse> getLogin(){
-		return new ResponseEntity<QuoteResponse>(lclQuoteService.getLCLQuoteData(),HttpStatus.OK);
+	public Map<String,String> getLogin(){
+		return new HashMap<String,String>(){{
+			put("status","true");
+			put("error","true");
+		}};
+//		return new ResponseEntity<String>(lclQuoteService.getLCLQuoteData(),HttpStatus.OK);
 	}
 }
